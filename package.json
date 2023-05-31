@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node-dev --respawn --transpile-only src/config/server.ts",
     "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
-    "lint:fix": "eslint --fix",
+    "lint:fix": "eslint . --fix",
+    "prettier-fix":"prettier --write .",
     "lint-prettier": "npm lint:check && npm prettier:check",
     "prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,7 +24,7 @@
     "prettier": "^2.8.8"
   },
   "lint-staged":{
-   "src/config/**/*":"npm lint-prettier"
+   "src/config/**/*":"npm lint-  prettier"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",
