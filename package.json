@@ -7,7 +7,7 @@
     "start": "ts-node-dev --respawn --transpile-only src/config/server.ts",
     "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "lint:fix": "eslint . --fix",
-    "prettier-fix":"prettier --write .",
+    "prettier-fix": "prettier --write .",
     "lint-prettier": "npm lint:check && npm prettier:check",
     "prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,11 +20,12 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "mongodb": "^5.5.0",
     "mongoose": "^7.2.1",
     "prettier": "^2.8.8"
   },
-  "lint-staged":{
-   "src/config/**/*":"npm lint-  prettier"
+  "lint-staged": {
+    "src/config/**/*": "npm lint-  prettier"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",
