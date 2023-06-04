@@ -1,5 +1,11 @@
-import express, { Application, Request, Response } from 'express'
-import cors from 'cors'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unreachable */
+import express, { Application } from 'express'
+import cors from 'cors';
+import userRoute from '../app/modules/users/user.route'
+
+import globalErorHandler from '../app/middlewires/globalErrorhandler';
+
 const app: Application = express()
 app.use(cors())
 
@@ -7,9 +13,20 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!')
-})
+
+// application route
+// console.log(process.env)
+app.use('/api/v1/users/',userRoute)
+
+
+
+// app.get('/', (req: Request, res: Response,next) => {
+// //  throw new ApiError(400,'hello world')
+//  next('hello')
+// })
+// global error handler
+// eslint-disable-next-line no-undef
+app.use(globalErorHandler)
 
 export default app
  
