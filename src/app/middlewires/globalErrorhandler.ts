@@ -1,18 +1,23 @@
-import { NextFunction, Request, Response } from "express"
+/* eslint-disable no-unused-expressions */
+import { ErrorRequestHandler  } from "express"
 import config from "../../config"
 import { IGenericErrorMessage } from "../../interfaces/error";
 import handleValidationError from "../../errors/handleValidationError";
-import { error } from "winston";
 import ApiError from "../../errors/ApiError";
-const globalErorHandler = ((err:any ,req:Request,res:Response,next:NextFunction)=>{
+import { errorLogger } from "../../shared/logger";
+
+const globalErorHandler: ErrorRequestHandler = ((error:any,req,res,next)=>{
     
-   
+    config.env === 'developement'?
+    console.log("globalErrorhandler",error):
+    errorLogger.error("globalErrorhandler",error)
+
     let statusCode=500;
-    let message = 'Somethin went wrong!'
+    let message = 'Something went wrong!'
     let errorMessages :  IGenericErrorMessage[] = []
 
-    if(err?.name === 'validationError' ){
-        const simplifiedError = handleValidationError(err)
+    if(error?.name === 'ValidationError' ){
+        const simplifiedError = handleValidationError(error)
         statusCode = simplifiedError.statusCode;
         message = simplifiedError.message;
         errorMessages = simplifiedError.errorMessages
@@ -43,12 +48,12 @@ const globalErorHandler = ((err:any ,req:Request,res:Response,next:NextFunction)
             []
         }
        
-            res.status(400).json({err:err})
+            // res.status(400).json({error:error})
             res.status(statusCode).json({
                 success:false,
                 message,
                 errorMessages,
-                stack:config.env !== 'production' ? err.stack:undefined
+                stack:config.env !== 'production' ? error.stack:undefined
             })
         
    
