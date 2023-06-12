@@ -1,2 +1,5 @@
 Mon Jun 12 2023:15:9:38 [PH] error: 🐱‍🏍 globalErrorHandler ~~ $regex has to be a string
 Mon Jun 12 2023:15:9:48 [PH] error: 🐱‍🏍 globalErrorHandler ~~ $regex has to be a string
+Mon Jun 12 2023:15:55:41 [PH] error: 🐱‍🏍 globalErrorHandler ~~ $and/$or/$nor must be a nonempty array
+Mon Jun 12 2023:15:55:46 [PH] error: 🐱‍🏍 globalErrorHandler ~~ $and/$or/$nor must be a nonempty array
+Mon Jun 12 2023:15:56:32 [PH] error: 🐱‍🏍 globalErrorHandler ~~ $and/$or/$nor must be a nonempty array
