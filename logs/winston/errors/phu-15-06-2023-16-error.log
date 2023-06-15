@@ -1,0 +1,2 @@
+Thu Jun 15 2023:16:2:57 [PH] error: 🐱‍🏍 globalErrorHandler ~~ Cannot populate path `student.academicDepertment` because it is not in your schema. Set the `strictPopulate` option to false to override.
+Thu Jun 15 2023:16:9:49 [PH] error: 🐱‍🏍 globalErrorHandler ~~ E11000 duplicate key error collection: university-management.students index: email_1 dup key: { email: "user@gmail.com" }
